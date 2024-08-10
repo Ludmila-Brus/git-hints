@@ -96,6 +96,44 @@ Date — дата и время создания коммита.
 
 нутри HEAD — ссылка на служебный файл: refs/heads/master (или refs/heads/main в зависимости от названия ветки). Если заглянуть в этот файл, можно увидеть хеш последнего коммита.
 
+---
+Зачем нужны статусы файлов и как читать git status
+git status
+
+untracked
+
+staged
+
+git add
+Staging area также называют index (англ. «каталог») или cache (англ. «кеш»), а состояние файла staged иногда называют indexed или cached. Все три варианта могут встречаться в документации и в качестве флагов команд Git. А также в интернете — например, в вопросах и ответах на сайте Stack Overflow.
+
+
+tracked
+
+Состояние tracked — это противоположность untracked. Оно довольно широкое по смыслу: в него попадают файлы, которые уже были зафиксированы с помощью git commit, а также файлы, которые были добавлены в staging area командой git add. То есть все файлы, в которых Git так или иначе отслеживает изменения.
+
+modified
+
+
+---
+В итоге git status показывает только следующие состояния файлов:
+staged (Changes to be committed в выводе git status);
+modified (Changes not staged for commit);
+untracked (Untracked files).
+---------
+
+cd ~/dev
+$ mkdir git-status-lesson
+$ cd git-status-lesson
+$ git init
+# тут Git выведет что-нибудь, но мы это пропустим
+$ touch README.md
+$ git add README.md
+$ git commit -m 'Добавить README'
+# по традиции первым создадим и закоммитим файл README.md 
+
+
+
 
 
 
